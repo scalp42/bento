@@ -1,6 +1,8 @@
 #!/bin/bash -eux
 yum -y clean all
-rm -rf VBoxGuestAdditions_*.iso VBoxGuestAdditions_*.iso.?
+if [ $VM_TOOLS != 'disable' ]; then
+  rm -rf VBoxGuestAdditions_*.iso VBoxGuestAdditions_*.iso.?
+fi
 rm -f /tmp/chef*rpm
 
 # clean up redhat interface persistence
